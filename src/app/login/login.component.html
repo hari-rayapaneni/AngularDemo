@@ -1,4 +1,30 @@
-<p>
-  Username: {{userName}} <br>
-  Password: {{ getPassword() }}
-</p>
+
+<html >
+
+<body>
+
+      <form class="form-inline" action="/" method="post">
+
+        <div class="form-group">
+          <label>
+            Email Address<span class="req">*</span>
+          </label>
+          <input class="form-control" type="email"required autocomplete="off" [(ngModel)]="userName" name="username" (input)="checkIsUserNameEmpty($event)"/>
+        </div>
+
+        <div class="field-wrap">
+          <label>
+            Password<span class="req">*</span>
+          </label>
+          <input class="form-control" type="password"required autocomplete="off" [(ngModel)]="password" name="password"/>
+        </div>
+
+        <p class=""><a href="#">Forgot Password?</a></p>
+
+        <button class="btn btn-primary" [disabled]="!isEnable" (click)="checkUser($event)">Log In</button>
+
+      </form>
+<p [innerText]="isEnable"></p>
+<p>{{ user}}</p>
+</body>
+</html>
